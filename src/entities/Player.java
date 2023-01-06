@@ -39,12 +39,12 @@ public class Player {
 		this.name = name;
 	}
 	
-	public void addGoalFor() {
-		this.goalsFor++;
+	private void addGoalsFor(int qtd) {
+		this.goalsFor += qtd;
 	}
 	
-	public void addGoalAgainst() {
-		this.goalsAgainst++;
+	private void addGoalsAgainst(int qtd) {
+		this.goalsAgainst += qtd;
 	}
 	
 	public void addPoint() {
@@ -67,9 +67,9 @@ public class Player {
 		this.loses++;
 	}
 	
-	public void makeGoal(Player opponent) {
-		this.addGoalFor();
-		opponent.addGoalAgainst();
+	public void makeGoals(Player opponent, int qtd) {
+		this.addGoalsFor(qtd);
+		opponent.addGoalsAgainst(qtd);
 	}
 	
 	public void calcGoalDiff() {
@@ -82,9 +82,7 @@ public class Player {
 		int drawPoints = this.draws * 1;
 		int totalPoints = winPoints + drawPoints;
 		this.points = totalPoints;
-	}
-	
-	
+	}	
 
 	@Override
 	public String toString() {
